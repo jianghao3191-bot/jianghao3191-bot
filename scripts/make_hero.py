@@ -140,27 +140,22 @@ def build() -> Image.Image:
     ]))
     blob(canvas, 980, 640, 520, 220, (108, 140, 255), blur=120, alpha=40)
 
-    # 玻璃名牌：只有名字
-    box = (72, 168, 800, 420)
-    bw, bh = box[2] - box[0], box[3] - box[1]
-    canvas = glass_panel(canvas, box, radius=40, tint=(255, 255, 255, 20), border=64, blur=40)
+    # 玻璃名牌：只有名字，卡片贴着文字收
+    probe = ImageDraw.Draw(canvas)
+    f_name = font("segoeuib.ttf", 96)
+    b = probe.textbbox((0, 0), "lonGon", font=f_name)
+    tw, th = b[2] - b[0], b[3] - b[1]
+    pad_x, pad_y = 66, 54
+    plate_w, plate_h = tw + pad_x * 2, th + pad_y * 2
+    x0 = 76
+    y0 = (H - plate_h) // 2 - 12
+    box = (x0, y0, x0 + plate_w, y0 + plate_h)
+    canvas = glass_panel(canvas, box, radius=38, tint=(255, 255, 255, 20), border=64, blur=40)
 
     d = ImageDraw.Draw(canvas)
-    f_name = font("segoeuib.ttf", 96)
-    b = d.textbbox((0, 0), "lonGon", font=f_name)
-    nx = box[0] + 52 - b[0]
-    ny = box[1] + (bh - (b[3] - b[1])) / 2 - b[1]
+    nx = box[0] + pad_x - b[0]
+    ny = box[1] + pad_y - b[1]
     d.text((nx, ny), "lonGon", font=f_name, fill=(255, 255, 255, 255))
-
-    # 右侧：本地时间（不写地名）
-    now = datetime.now(ZoneInfo("Asia/Shanghai"))
-    f_time = font("segoeuib.ttf", 44)
-    f_day = font("segoeui.ttf", 14)
-    ts, ds = now.strftime("%H:%M"), now.strftime("%m.%d")
-    d.text((box[2] - 56 - d.textlength(ts, font=f_time), box[1] + 82), ts,
-           font=f_time, fill=(255, 255, 255, 232))
-    d.text((box[2] - 56 - d.textlength(ds, font=f_day), box[1] + 146), ds,
-           font=f_day, fill=(214, 226, 255, 165))
 
     # 署名
     d.text((76, 598), "Art © NEXON Games / Yostar · Blue Archive",
