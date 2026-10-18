@@ -1,0 +1,44 @@
+name: Nixie Clock
+
+# 每 5 分钟刷新一次北京时间（GitHub 的定时任务最小间隔就是 5 分钟，偶尔会延迟）
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_clock.py"
+      - ".github/workflows/clock.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nixie-clock
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Render clock.svg
+        run: python scripts/update_clock.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/clock.svg
+          if git diff --staged --quiet; then
+            echo "clock unchanged"
+          else
+            git commit -m "chore(clock): $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi
