@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-label="北京时间 23:13:39">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-label="北京时间 03:14:19">
   <defs>
     <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B1030"/>
@@ -60,7 +60,7 @@
   <rect x="18" y="1.5" width="924" height="120" rx="26" fill="url(#sheen)" opacity="0.20"/>
 
   <text x="40" y="46" class="label">TIME</text>
-  <text x="920" y="46" class="label" text-anchor="end">SYNC 23:13:39</text>
+  <text x="920" y="46" class="label" text-anchor="end">SYNC 03:14:19</text>
 
   <g class="tube">
     <rect x="79.0" y="82.0" width="112.0" height="140.0" rx="20"
@@ -69,8 +69,8 @@
           fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
     <ellipse cx="135.0" cy="160.4" rx="40.3" ry="47.6"
              fill="url(#glow)"/>
-    <text x="135.0" y="184.9" class="nixie-glow">2</text>
-    <text x="135.0" y="184.9" class="nixie-core">2</text>
+    <text x="135.0" y="184.9" class="nixie-glow">0</text>
+    <text x="135.0" y="184.9" class="nixie-core">0</text>
     <path d="M93.0,100.0 q33.6,-9 69.4,2"
           fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="2.2"
           stroke-linecap="round"/>
@@ -129,8 +129,8 @@
           fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
     <ellipse cx="541.0" cy="160.4" rx="40.3" ry="47.6"
              fill="url(#glow)"/>
-    <text x="541.0" y="184.9" class="nixie-glow">3</text>
-    <text x="541.0" y="184.9" class="nixie-core">3</text>
+    <text x="541.0" y="184.9" class="nixie-glow">4</text>
+    <text x="541.0" y="184.9" class="nixie-core">4</text>
     <path d="M499.0,100.0 q33.6,-9 69.4,2"
           fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="2.2"
           stroke-linecap="round"/>
@@ -153,8 +153,8 @@
           fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
     <ellipse cx="703.0" cy="160.4" rx="40.3" ry="47.6"
              fill="url(#glow)"/>
-    <text x="703.0" y="184.9" class="nixie-glow">3</text>
-    <text x="703.0" y="184.9" class="nixie-core">3</text>
+    <text x="703.0" y="184.9" class="nixie-glow">1</text>
+    <text x="703.0" y="184.9" class="nixie-core">1</text>
     <path d="M661.0,100.0 q33.6,-9 69.4,2"
           fill="none" stroke="#ffffff" stroke-opacity="0.16" stroke-width="2.2"
           stroke-linecap="round"/>
@@ -185,5 +185,5 @@
 
   <text x="480.0" y="268" text-anchor="middle"
         font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20"
-        fill="#DFE8FF" opacity="0.9">2026-10-23 · 星期五</text>
+        fill="#DFE8FF" opacity="0.9">2026-10-24 · 星期六</text>
 </svg>
